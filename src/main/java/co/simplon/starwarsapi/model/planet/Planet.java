@@ -16,22 +16,22 @@ public class Planet {
     @Column(name = "planet_name")
     private String name;
 
-    @Column(name = "rotation_period")
+    @Column(name = "rotation_period", nullable = true)
     private Integer rotationPeriod;
 
-    @Column(name = "orbital_period")
+    @Column(name = "orbital_period", nullable = true)
     private Integer orbitalPeriod;
 
-    @Column(name = "diameter")
+    @Column(name = "diameter", nullable = true)
     private Integer diameter;
 
     @Column(name = "gravity")
     private BigDecimal gravity;
 
-    @Column(name = "surface_water")
+    @Column(name = "surface_water", nullable = true)
     private Integer surfaceWater;
 
-    @Column(name = "population")
+    @Column(name = "population", nullable = true)
     private Long population;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -50,6 +50,11 @@ public class Planet {
     }
 
     public Planet(String name) { this.name = name; }
+
+    public Planet(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
