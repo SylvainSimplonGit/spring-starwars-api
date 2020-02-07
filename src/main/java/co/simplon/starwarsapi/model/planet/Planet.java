@@ -10,8 +10,8 @@ import java.util.Set;
 public class Planet {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @SequenceGenerator(allocationSize = 1, name = "planet_id_seq")
+    @GeneratedValue(generator = "planet_id_seq")private Long id;
 
     @Column(name = "planet_name")
     private String name;
